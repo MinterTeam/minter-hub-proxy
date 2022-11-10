@@ -25,8 +25,11 @@ contract MinterHubProxy {
         bytes32 destination,
         uint256 fee
     ) public payable {
-        tokenFrom.transferFrom(msg.sender, address(this), tokenFromAmount);
-        tokenFrom.approve(to, tokenFromAmount);
+        if (msg.value == 0) {
+            tokenFrom.transferFrom(msg.sender, address(this), tokenFromAmount);
+            tokenFrom.approve(to, tokenFromAmount);
+        }
+
         uint256 balanceBefore = tokenTo.balanceOf(address(this));
         Address.functionCallWithValue(to, data, msg.value);
         uint256 toDeposit = tokenTo.balanceOf(address(this)) - balanceBefore;
