@@ -45,7 +45,7 @@ module.exports = {
     }
   },
   abiExporter: {
-    path: './data/abi',
+    path: './abi',
     runOnCompile: true
   },
   networks: {
