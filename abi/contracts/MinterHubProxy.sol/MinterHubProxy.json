@@ -38,6 +38,11 @@
         "type": "address"
       },
       {
+        "internalType": "address",
+        "name": "refundTo",
+        "type": "address"
+      },
+      {
         "internalType": "bytes32",
         "name": "destinationChain",
         "type": "bytes32"

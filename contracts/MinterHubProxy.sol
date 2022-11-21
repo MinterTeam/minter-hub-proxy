@@ -33,7 +33,7 @@ contract MinterHubProxy {
             // approve "to" contract to spend "tokenFrom"
             tokenFrom.approve(to, tokenFromAmount);
         } else {
-            require(tokenFrom == 0x0000000000000000000000000000000000000000 && tokenFromAmount == 0, "MinterHubProxy: set tokenFrom and tokenFromAmount to 0 when passing a value");
+            require(address(tokenFrom) == 0x0000000000000000000000000000000000000000 && tokenFromAmount == 0, "MinterHubProxy: set tokenFrom and tokenFromAmount to 0 when passing a value");
         }
 
         // call "to" contract and calculate the difference of balance of "tokenTo" before and after
