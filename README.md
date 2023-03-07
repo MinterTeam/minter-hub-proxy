@@ -22,6 +22,31 @@ The main function of Minter Hub Proxy is on-chain calculation of the amount of c
 
 *Note*: you also can send an eth value to contract. In this case `tokenToSpend` and `maxAmountToSpend` must be equal to `0x0000000000000000000000000000000000000000` and `0`.
 
+### Пример оборачивания транзы от 1inch api
+
+Параметры для callAndTransferToChain:
+
+- to - адрес контракта, который вызываем (приходит тебе через апи)
+- data (приходит через апи)
+
+// токен
+- tokenFrom, tokenFromAmount -  токен, для которого нужно сделать аппрув на адрес to.
+- tokenTo - адрес токена, который мы в итоге депозитим в хаб. Контракт проверяет баланс до покупки и после покупки и разница и будет то, что мы купили. Эту разницу контракт отправляет в хаб.
+
+- refundTo - адрес владельца монет
+
+// данные для хаба
+- destinationChain
+- destination
+- fee
+
+### transaction-composer service
+
+Wraps 1inch tx into HubProxy tx
+
+https://github.com/MinterTeam/transaction-composer
+
+
 ## Deploy testnet
 
 ```shell
